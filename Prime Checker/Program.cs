@@ -10,24 +10,36 @@ namespace Prime_Checker
     {
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine());
-            isPrime(n);
-            
+            long n = long.Parse(Console.ReadLine());
+            Console.WriteLine(isPrime(n));
+
         }
-        static void isPrime(int n)
+        static bool isPrime(long n)
         {
-            if (n % 2 == 0)
+            if (n == 0)
             {
-                Console.WriteLine("True");
+                return false;
             }
-            else if(n == 0)
+            else if (n == 1)
             {
-                Console.WriteLine("False");
+                return false;
             }
-            else if(n % 2 != 0)
+            else if (n == 2)
             {
-                Console.WriteLine("False");
+                return true;
             }
+            else if (n % 2 != 0)
+            {
+                for (int i = 2; i <= Math.Sqrt(n); i++)
+                {
+                    if (n % i == 0)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
         }
     }
 }
