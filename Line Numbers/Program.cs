@@ -17,8 +17,7 @@ namespace Odd_Lines
 
             for (int i = 0; i < file.Length; i++)
             {
-                if(i % 2 != 0)
-                File.AppendAllText("output.txt", file[i] + "\r\n");
+                    File.AppendAllText("output.txt", $"{i + 1}. {file[i]}\r\n");
             }
         }
     }
